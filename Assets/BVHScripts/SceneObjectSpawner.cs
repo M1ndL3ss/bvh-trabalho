@@ -4,7 +4,6 @@ using UnityEngine;
 /// <summary>
 /// Instancia N cópias de cada prefab dentro de uma área retangular,
 /// tentando evitar sobreposição e encaixando cada objeto no chão.
-/// Coloque este script em um GameObject vazio (ex: "Spawner") na área aberta.
 /// </summary>
 public class SceneObjectSpawner : MonoBehaviour
 {
@@ -37,7 +36,7 @@ public class SceneObjectSpawner : MonoBehaviour
     [ContextMenu("Spawnar Objetos Agora")]
     public void SpawnAll()
     {
-        // Remove instâncias anteriores (útil se você rodar de novo pelo menu de contexto)
+        // Remove instâncias anteriores
         for (int i = transform.childCount - 1; i >= 0; i--)
         {
 #if UNITY_EDITOR

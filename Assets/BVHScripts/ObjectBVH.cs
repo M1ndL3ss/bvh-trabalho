@@ -3,8 +3,7 @@ using System.Linq;
 using UnityEngine;
 
 /// <summary>
-/// Resultado de um raycast contra a BVH de um ObjectBVH (equivalente simplificado
-/// de um RaycastHit, mas construído por nós mesmos a partir do teste raio-triângulo).
+/// Resultado de um raycast contra a BVH de um ObjectBVH.
 /// </summary>
 public struct BVHRayHit
 {
@@ -16,14 +15,10 @@ public struct BVHRayHit
 }
 
 /// <summary>
-/// Coloque este componente na raiz de cada prefab estático (o mesmo objeto que
-/// tem o LODGroup). Ele extrai os triângulos da mesh de maior qualidade (LOD0),
+/// Colocado na raiz de cada prefab. Ele extrai os triângulos da mesh de maior qualidade (LOD0),
 /// constrói uma BVH sobre esses triângulos e expõe dois métodos de raycast:
 ///   - RaycastBVH: usa a hierarquia para podar testes de triângulo
 ///   - RaycastBruteForce: testa TODOS os triângulos (baseline "sem BVH")
-///
-/// Como o objeto é estático, a extração e a construção da BVH podem ser feitas
-/// uma única vez (Awake) e reaproveitadas para sempre.
 /// </summary>
 public class ObjectBVH : MonoBehaviour
 {
@@ -192,8 +187,7 @@ public class ObjectBVH : MonoBehaviour
     {
         if (!drawGizmos) return;
 
-        // Constrói sob demanda também fora do Play Mode, para poder depurar
-        // os Gizmos direto na Scene View sem precisar dar Play.
+        // Constrói sob demanda também fora do Play Mode
         if (root == null) BuildFromMesh();
         if (root == null) return;
 

@@ -8,8 +8,7 @@ public enum RaycastMode { BVH, BruteForce }
 /// <summary>
 /// Dispara um raio do centro da câmera usando o modo ativo (BVH ou força bruta)
 /// e loga no console o tempo gasto. Aperte "toggleModeKey" para trocar de modo
-/// em tempo real, sem precisar rodar os dois ao mesmo tempo (isso evita o lag
-/// que a comparação simultânea causava com muitos objetos na cena).
+/// em tempo real.
 /// </summary>
 public class ShootingComparison : MonoBehaviour
 {
